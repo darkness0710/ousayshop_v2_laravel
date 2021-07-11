@@ -28,6 +28,7 @@
                                         <th>Time</th>
                                         <th>Group ID</th>
                                         <th>Message</th>
+                                        <th>Check connection</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -41,6 +42,13 @@
                                             <td>{{ Arr::get($time_mapping, $schedule->time_number) }}</td>
                                             <td><a href="https://www.chatwork.com/#!rid{{ $schedule->group_id }}">{{ $schedule->group_id }}</a></td>
                                             <td>{{ $schedule->message }}</td>
+                                            <td>
+                                                @if (in_array($schedule->group_id, $roomIds))
+                                                    <span class="text-success">Active</span>
+                                                @else
+                                                    <span class="text-danger">Fail</span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 <form action="{{ route('chatworks.destroy', $schedule->id) }}" method="POST">   
                                                     {{-- <a class="btn btn-primary" href="{{ route('posts.edit', $schedule->id) }}">Edit</a>    --}}

@@ -23,7 +23,10 @@
                     <div class="col-md-12">
                         <div class="card card-default">
                             <div class="card-header">
-                                <h3 class="card-title">Setting API Token</h3>
+                                <h3 class="card-title">
+                                    <p>Setting API Token</p>
+                                    <a href="https://www.chatwork.com/service/packages/chatwork/subpackages/api/token.php" target="_blank">Click get API</a>
+                                </h3>
                             </div>
                             <form class="form-horizontal" method="post" action="{{ route('chatwork.setting.update') }}">
                             	@csrf	
