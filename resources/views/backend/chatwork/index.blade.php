@@ -27,6 +27,7 @@
                                         <th>No</th>
                                         <th>Time</th>
                                         <th>Group ID</th>
+                                        <th>Group Name</th>
                                         <th>Message</th>
                                         <th>Check connection</th>
                                         <th>Action</th>
@@ -38,12 +39,24 @@
                                 @foreach ($schedules as $schedule)
                                     <tbody>
                                         <tr>
+                                            @php
+                                                $activeRoom = false;
+                                                $groupName = '';
+                                                foreach($rooms as $room) {
+                                                    if ($room->room_id == $schedule->group_id) {
+                                                        $activeRoom = true;
+                                                        $groupName = $room->name;
+                                                    }
+                                                }
+                                            @endphp
+
                                             <td>{{ ++$loop->index }}</td>
                                             <td>{{ Arr::get($time_mapping, $schedule->time_number) }}</td>
                                             <td><a href="https://www.chatwork.com/#!rid{{ $schedule->group_id }}">{{ $schedule->group_id }}</a></td>
+                                            <td>{{ $groupName }}</td>
                                             <td>{{ $schedule->message }}</td>
                                             <td>
-                                                @if (in_array($schedule->group_id, $roomIds))
+                                                @if ($activeRoom)
                                                     <span class="text-success">Active</span>
                                                 @else
                                                     <span class="text-danger">Fail</span>

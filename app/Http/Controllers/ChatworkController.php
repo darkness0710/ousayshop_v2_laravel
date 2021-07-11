@@ -22,13 +22,13 @@ class ChatWorkController extends Controller
                 'user_id' => \Auth::guard('web')->user()->id
             ]
         );
-        $roomIds = $this->getRoomIds($setting->token);
+        $rooms = $this->getRooms($setting->token);
 
         $schedules = ChatworkSchedule::where('user_id', \Auth::guard('web')->user()->id)->get();
         return view('backend.chatwork.index', [
             'schedules' => $schedules,
             'time_mapping' => $this->getTimeMapping(),
-            'roomIds' => $roomIds
+            'rooms' => $rooms
         ]);
     }
 
@@ -107,20 +107,16 @@ class ChatWorkController extends Controller
         return $status ?? true;
     }
 
-    public function getRoomIds($token)
+    public function getRooms($token)
     {
-        $roomIds = [];
         try {
-            $values = json_decode(
+            $rooms = json_decode(
                 $this->_getClientConnect($token)->get('rooms')->getBody()->getContents()
             );
-            foreach ($values as $value) {
-                $roomIds[] = $value->room_id;
-            }
         } catch (\Exception $e) {
             \Log::error($e->getMessage());
         }
-        return $roomIds;
+        return $rooms ?? [];
     }
 
     protected function _getClientConnect($token = '')
