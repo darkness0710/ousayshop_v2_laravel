@@ -17,7 +17,6 @@ class ChatworkSchedules extends Command
 
     public function __construct()
     {
-        phpinfo();
         parent::__construct();
     }
 
