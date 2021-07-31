@@ -39,14 +39,13 @@ if (!function_exists('getRouteParentCategory')) {
             return route('client.games.tn3q_china.index');
         }
         if ($type == '0') {
-            return '#';
+            return route('client.games.tn3q_vng.index');
         } 
         if ($type == '3') {
-            return '#';
+            return route('client.games.tan_omg_3q_vng.index');
         }
         if ($type == '4') {
-            return '#';
-            // return route('client.games.tn3q_china.index');
+            return route('client.games.tan_omg_3q_china.index');
         }
     }
 }

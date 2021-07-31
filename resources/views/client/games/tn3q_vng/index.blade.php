@@ -2,15 +2,15 @@
 
 @section('content')
     <div class="main main-raised mt-100">
-        <nav aria-label="breadcrumb" role="navigation">
-            <ol class="breadcrumb">
-               <li class="breadcrumb-item"><a href="{{ route('client.games.index') }}">Hướng dẫn chơi game</a></li>
-               <li class="breadcrumb-item active" aria-current="page">Tổng hợp bài viết hướng dẫn game Tân OMG 3Q VNG</li>
-            </ol>
-        </nav>
+                <nav aria-label="breadcrumb" role="navigation">
+                    <ol class="breadcrumb">
+                       <li class="breadcrumb-item"><a href="{{ route('client.games.index') }}">Hướng dẫn chơi game</a></li>
+                       <li class="breadcrumb-item active" aria-current="page">Tổng hợp bài viết hướng dẫn game Thiếu Niên 3Q VNG</li>
+                    </ol>
+                </nav>
         <div class="container">
             <div class="section">
-                <h3 class="title text-center">Tổng hợp bài viết hướng dẫn game Tân OMG 3Q VNG</h3>
+                <h3 class="title text-center">Tổng hợp bài viết hướng dẫn game Thiếu Niên 3Q VNG</h3>
                 <br>
                 @if ($posts->isEmpty())
                     <h1 class="title text-center text-warning">Hiện tại chưa có bài viết nào!</h1>
@@ -29,7 +29,7 @@
                                         <a href="#">{{ $post->name }}</a>
                                     </h4>
                                     <p class="card-description">
-                                        <a href="{{ route('client.games.tn3q_china.show', $post->slug) }}"> Đọc thêm... </a>
+                                        <a href="{{ route('client.games.tn3q_vng.show', $post->slug) }}"> Đọc thêm... </a>
                                     </p>
                                 </div>
                             </div>

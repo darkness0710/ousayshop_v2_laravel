@@ -24,20 +24,22 @@ Route::middleware(['web'])->group(function () {
 
     // games
     Route::get('/games', 'GameController@index')->name('client.games.index');
+
+    // game tn3q china
     Route::get('/games/tn3q-china/{slug}', 'GameController@tn3qChinaShow')->name('client.games.tn3q_china.show');
     Route::get('/games/tn3q-china', 'GameController@tn3qChinaIndex')->name('client.games.tn3q_china.index');
 
-    Route::get('/games/tn3q-vn/{slug}', 'GameController@tn3qVnIndex')->name('client.games.tn3q_vn.index');
-    Route::get('/games/tn3q-vng', 'GameController@tn3qVnIndex')->name('client.games.tn3q_vn.index');
+    // game tn3q vng
+    Route::get('/games/tn3q-vng/{slug}', 'GameController@tn3qVngShow')->name('client.games.tn3q_vng.show');
+    Route::get('/games/tn3q-vng', 'GameController@tn3qVngIndex')->name('client.games.tn3q_vng.index');
 
-    Route::get('/games/tan-omg-3q-vng/{slug}', 'GameController@tn3qVnIndex')->name('client.games.tan_omg_3q_vng.index');
-    Route::get('/games/tan-omg-3q-vng', 'GameController@tn3qVnIndex')->name('client.games.tan_omg_3q_vng.index');
+    // game tan omg 3q vng
+    Route::get('/games/tan-omg-3q-vng/{slug}', 'GameController@tanOmg3qVngShow')->name('client.games.tan_omg_3q_vng.show');
+    Route::get('/games/tan-omg-3q-vng', 'GameController@tanOmg3qVngIndex')->name('client.games.tan_omg_3q_vng.index');
 
-    Route::get('/games/tan-omg-3q-china/{slug}', 'GameController@tn3qVnIndex')->name('client.games.tan_omg_3q_china.index');
-    Route::get('/games/tan-omg-3q-china', 'GameController@tn3qVnIndex')->name('client.games.tan_omg_3q_china.index');
-
-    // new_omg_3q_vng
-    // new_omg_3q_china
+    // game tan omg 3q china
+    Route::get('/games/tan-omg-3q-china/{slug}', 'GameController@tanOmg3qChinaShow')->name('client.games.tan_omg_3q_china.show');
+    Route::get('/games/tan-omg-3q-china', 'GameController@tanOmg3qChinaIndex')->name('client.games.tan_omg_3q_china.index');
 
     // social
     Route::get('/auth/facebook', 'LoginWithFacebookController@redirectFacebook')->name('client.social.facebook.redirect');
