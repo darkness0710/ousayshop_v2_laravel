@@ -12,6 +12,9 @@ class LoginController extends \App\Http\Controllers\Controller
 {
     public function showLoginForm()
     {
+        if (!empty(getCurrentAdmin())) {
+            return redirect()->route('admin.dashboard.index');
+        }
         return view('admin.auth.login');
     }  
       

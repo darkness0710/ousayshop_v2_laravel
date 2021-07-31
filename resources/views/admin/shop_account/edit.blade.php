@@ -97,19 +97,32 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
-                                  <!-- checkbox -->
                                   <div class="form-group">
                                     <div class="custom-control custom-checkbox">
-                                        {{-- {{ dd($shop) }} --}}
                                         @php
                                             $valueSale = 'true';
                                             if (!blank($shop->is_show_sale_price) && $shop->is_show_sale_price) {
-                                                // $valueSale = 'true';
                                                 $valueSaleChecked = 'checked';
                                             }
                                         @endphp
                                       <input name="is_show_sale_price" id="customCheckbox1" class="custom-control-input" type="checkbox" {{ $valueSaleChecked ?? '' }} value="{{ $valueSale }}">
                                       <label for="customCheckbox1" class="custom-control-label">Sử dụng giá khuyến mại</label>
+                                    </div>
+                                  </div>
+                                </div> 
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        @php
+                                            $valueSale = 'true';
+                                            if ($shop->is_sell == 1) {
+                                                $valueIsSellChecked = 'checked';
+                                            }
+                                        @endphp
+                                      <input name="is_sell" id="customCheckbox2" class="custom-control-input" type="checkbox" {{ $valueIsSellChecked ?? '' }} value="{{ $valueSale }}">
+                                      <label for="customCheckbox2" class="custom-control-label">Đã bán</label>
                                     </div>
                                   </div>
                                 </div> 

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Quản lí OusayShop'),
 
     /*
     |--------------------------------------------------------------------------
@@ -177,6 +177,9 @@ return [
 
         // Debugbar
         Barryvdh\Debugbar\ServiceProvider::class,
+
+        // Social
+        Laravel\Socialite\SocialiteServiceProvider::class,
     ],
 
     /*
@@ -231,6 +234,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

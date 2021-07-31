@@ -17,7 +17,7 @@ class ShopAccountController extends \App\Http\Controllers\Controller
 
     public function index()
     {
-    	$shopAccounts = ShopAccount::all();
+        $shopAccounts = ShopAccount::all();
         $type = $this->_getTypeConfig();
         $typeRegion = $this->_getTypeRegionConfig();
         return view('admin.shop_account.index', compact('shopAccounts', 'type', 'typeRegion'));
@@ -28,7 +28,7 @@ class ShopAccountController extends \App\Http\Controllers\Controller
         $type = $this->_getTypeConfig();
         $typeRegion = $this->_getTypeRegionConfig();
 
-    	return view('admin.shop_account.create', compact('type', 'typeRegion'));
+        return view('admin.shop_account.create', compact('type', 'typeRegion'));
     }
 
     public function edit($id)
@@ -59,8 +59,10 @@ class ShopAccountController extends \App\Http\Controllers\Controller
         $request->validate($rules, $customMessages);
 
         $params = $request->all();
-        $params['is_show_sale_price'] = $params['is_show_sale_price'] ?? '';
-        $params['is_show_sale_price'] = !blank($params['is_show_sale_price']);
+
+        $params['is_show_sale_price'] = isset($params['is_show_sale_price']);
+        $params['is_sell'] = isset($params['is_sell']);
+        
         ShopAccount::create($params);
      
         return redirect()->route('admin.shops.index')
@@ -85,12 +87,23 @@ class ShopAccountController extends \App\Http\Controllers\Controller
 
         $request->validate($rules, $customMessages);
         $params = $request->all();
-        $params['is_show_sale_price'] = $params['is_show_sale_price'] ?? '';
-        $params['is_show_sale_price'] = !blank($params['is_show_sale_price']);
+
+        $params['is_show_sale_price'] = isset($params['is_show_sale_price']);
+        $params['is_sell'] = isset($params['is_sell']);
+        
         ShopAccount::find($id)->update($params);
      
         return redirect()->route('admin.shops.index')
-            ->with('success', 'Update tài khoản thành công!');
+            ->with('success', 'Cập nhật tài khoản thành công!');
+    }
+
+    public function destroy($id)
+    {
+        $shop = ShopAccount::find($id);
+        $shop->delete();
+
+        return redirect()->route('admin.shops.index')
+            ->with('success', 'Xóa tài khoản thành công!');
     }
 
     protected function _getTypeConfig()

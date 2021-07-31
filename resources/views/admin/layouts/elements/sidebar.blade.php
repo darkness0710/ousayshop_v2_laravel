@@ -27,8 +27,8 @@
                     </p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
+            <li class="nav-item {{ setNavBarActiveParent('admin/shops') }}">
+                <a href="#" class="nav-link {{ setNavBarActiveChild('admin.shops') }}">
                     <i class="nav-icon fas fa-th"></i>
                     <p>
                         Shop tài khoản
@@ -37,13 +37,53 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{ route('admin.shops.index') }}" class="nav-link">
+                        <a href="{{ route('admin.shops.index') }}" class="nav-link {{ setNavBarActiveChild('admin.shops.index') }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Màn quản lí</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.shops.create') }}" class="nav-link">
+                        <a href="{{ route('admin.shops.create') }}" class="nav-link {{ setNavBarActiveChild('admin.shops.create') }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Màn thêm mới</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item {{ setNavBarActiveParent('admin/users') }}">
+                <a href="#" class="nav-link {{ setNavBarActiveChild('admin.users') }}">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                        Quản lí user
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('admin.users.index') }}" class="nav-link {{ setNavBarActiveChild('admin.users.index') }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Màn quản lí</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item {{ setNavBarActiveParent('admin/posts') }}">
+                <a href="#" class="nav-link {{ setNavBarActiveChild('admin.posts') }}">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                        Quản lí bài viết
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('admin.posts.index') }}" class="nav-link {{ setNavBarActiveChild('admin.posts.index') }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Màn quản lí</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.posts.create') }}" class="nav-link {{ setNavBarActiveChild('admin.posts.create') }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Màn thêm mới</p>
                         </a>

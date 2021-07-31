@@ -7,10 +7,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Quản lí shop tài khoản</h3>
+                            <h3 class="card-title">Quản lí bài viết</h3>
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <a class="btn btn-block btn-primary" href="{{ route('admin.shops.create') }}">Thêm mới</a>
+                                    <a class="btn btn-block btn-primary" href="{{ route('admin.posts.create') }}">Thêm mới</a>
                                 </div>
                             </div>
                         </div>
@@ -25,37 +25,27 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Tên loại tài khoản</th>
+                                        <th>Tiêu đề</th>
+                                        <th>Slug (URL SEO)</th>
                                         <th>Loại game</th>
-                                        <th>Loại quốc gia</th>
-                                        <th>Mô tả về tài khoản </th>
-                                        <th>Thông tin bí mật tài khoản </th>
-                                        <th>Giá </th>
-                                        <th>Giá khuyến mại</th>
-                                        <th>Sử dụng giá khuyến mại</th>
-                                        <th>Bán</th>
+                                        <th>Tác giả</th>
                                         <th>Hành động</th>
                                     </tr>
                                 </thead>
-                                @if ($shopAccounts->isEmpty())
+                                @if ($posts->isEmpty())
                                     <td>Chưa có dữ liệu để hiển thị!</td>
                                 @endif
-                                @foreach ($shopAccounts as $shop)
+                                @foreach ($posts as $post)
                                     <tbody>
                                         <tr>
-                                            <td>{{ $shop->id }}</td>
-                                            <td>{{ $shop->name }}</td>
-                                            <td>{{ Arr::get($type, $shop->type) }}</td>
-                                            <td>{{ Arr::get($typeRegion, $shop->type_region) }}</td>
-                                            <td>{{ $shop->description }}</td>
-                                            <td>{{ $shop->private_note }}</td>
-                                            <td>{{ number_format($shop->price) }}</td>
-                                            <td>{{ number_format($shop->sale_price) }}</td>
-                                            <td>{{ $shop->getIsShowSaleMessage() }}</td>
-                                            <td>{{ $shop->getIsSaleMessage() }}</td>
+                                            <td>{{ $post->id }}</td>
+                                            <td>{{ $post->name }}</td>
+                                            <td>{{ $post->slug }}</td>
+                                            <td>{{ Arr::get($type, $post->type) }}</td>
+                                            <td>Admin</td>
                                             <td>
-                                                <form action="{{ route('admin.shops.destroy', $shop->id) }}" method="POST">   
-                                                    <a class="btn btn-primary" href="{{ route('admin.shops.edit', $shop->id) }}">Chỉnh sửa</a>   
+                                                <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">   
+                                                    <a class="btn btn-primary" href="{{ route('admin.posts.edit', $post->id) }}">Chỉnh sửa</a>   
                                                     @csrf
                                                     @method('DELETE')      
                                                     <button type="submit" class="btn btn-danger">Xóa</button>

@@ -22,6 +22,9 @@
     <link href="https://www.dropzonejs.com/css/dropzone.css" rel="stylesheet">
     <script src="https://www.dropzonejs.com/js/dropzone.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="apple-touch-icon" href="{{ asset('images/favicon.png') }}">
+    <link rel="icon" href="{{ asset('images/favicon.png') }}">
 </head>
 <body>
 <body class="hold-transition sidebar-mini">

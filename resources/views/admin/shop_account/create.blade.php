@@ -36,7 +36,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Tên loại tài khoản (*)</label>
-                                        <input type="text" name="name" class="form-control" placeholder="Ví dụ TN3Q-YOYO N188" required>
+                                        <input type="text" name="name" class="form-control" placeholder="Ví dụ TN3Q-YOYO N188" value="{{ old('name') }}">
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label>Mô tả về tài khoản (*)</label>
-                                        <textarea class="form-control" name="description" rows="12" placeholder="Ví dụ tài khoản trắng thông tin ..."></textarea>
+                                        <textarea class="form-control" name="description" rows="12" placeholder="Ví dụ tài khoản trắng thông tin ..." id="description">{{ old('description') }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Giá (*)</label>
-                                        <input type="text" name="price" class="form-control" value="0">
+                                        <input type="text" name="price" class="form-control" value="{{ old('price', 0) }}">
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Giá khuyến mại</label>
-                                        <input type="text" name="sale_price" class="form-control" placeholder="Ví dụ TN3Q-YOYO N188" value="0">
+                                        <input type="text" name="sale_price" class="form-control" placeholder="Ví dụ TN3Q-YOYO N188" value="{{ old('sale_price', 0) }}">
                                     </div>
                                 </div>
                             </div>
@@ -103,20 +103,33 @@
                                 </div> 
                             </div>
                             <div class="row">
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        @php
+                                            $valueSale = 'true';
+                                        @endphp
+                                      <input name="is_sell" id="customCheckbox2" class="custom-control-input" type="checkbox" {{ $valueSaleChecked ?? '' }} value="{{ $valueSale }}">
+                                      <label for="customCheckbox2" class="custom-control-label">Đã bán</label>
+                                    </div>
+                                  </div>
+                                </div> 
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Thông tin bí mật của tài khoản (sẽ không hiển thị ở ngoài shop, có thể bỏ trống)</label>
+                                        <textarea class="form-control" name="private_note" rows="12" placeholder="Ví dụ tài khoản, mật khẩu, ..." id="private_note">{{ old('private_note') }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Hình ảnh</label>
                                         @include('admin.shop_account._dropzone')
                                         @include('admin.shop_account._dropzone')
                                         <input type="hidden" id="hidden_images" name="images" value="" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <label>Thông tin bí mật của tài khoản (sẽ không hiển thị ở ngoài shop, có thể bỏ trống)</label>
-                                        <textarea class="form-control" name="private_note" rows="12" placeholder="Ví dụ tài khoản, mật khẩu, ..." required></textarea>
                                     </div>
                                 </div>
                             </div>

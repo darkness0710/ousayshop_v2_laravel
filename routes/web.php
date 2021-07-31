@@ -15,33 +15,33 @@ use Illuminate\Support\Facades\Route;
 
 // client
 Route::middleware(['web'])->group(function () {
-    Route::get('/', [App\Http\Controllers\Client\HomeController::class, 'index'])->name('client.home.index');
+    // home
+    Route::get('/', 'HomeController@index')->name('client.home.index');
+
+    // shops
+    Route::get('/shops', 'ShopAccountController@index')->name('client.shops.index');
+    Route::get('/shops/{id}', 'ShopAccountController@show')->name('client.shops.show');
+
+    // games
+    Route::get('/games', 'GameController@index')->name('client.games.index');
+    Route::get('/games/tn3q-china/{slug}', 'GameController@tn3qChinaShow')->name('client.games.tn3q_china.show');
+    Route::get('/games/tn3q-china', 'GameController@tn3qChinaIndex')->name('client.games.tn3q_china.index');
+
+    Route::get('/games/tn3q-vn/{slug}', 'GameController@tn3qVnIndex')->name('client.games.tn3q_vn.index');
+    Route::get('/games/tn3q-vng', 'GameController@tn3qVnIndex')->name('client.games.tn3q_vn.index');
+
+    Route::get('/games/tan-omg-3q-vng/{slug}', 'GameController@tn3qVnIndex')->name('client.games.tan_omg_3q_vng.index');
+    Route::get('/games/tan-omg-3q-vng', 'GameController@tn3qVnIndex')->name('client.games.tan_omg_3q_vng.index');
+
+    Route::get('/games/tan-omg-3q-china/{slug}', 'GameController@tn3qVnIndex')->name('client.games.tan_omg_3q_china.index');
+    Route::get('/games/tan-omg-3q-china', 'GameController@tn3qVnIndex')->name('client.games.tan_omg_3q_china.index');
+
+    // new_omg_3q_vng
+    // new_omg_3q_china
+
+    // social
+    Route::get('/auth/facebook', 'LoginWithFacebookController@redirectFacebook')->name('client.social.facebook.redirect');
+    Route::get('/auth/facebook/callback', 'LoginWithFacebookController@facebookCallback')->name('client.social.facebook.callback');
+    Route::post('/auth/facebook/logout', 'LoginWithFacebookController@logout')->name('client.social.facebook.logout');
 });
-
-// admin
-// Route::middleware(['web', 'admin_auth'])->group(function () {
-// 	Route::prefix('admin')->group(function () {
-// 		Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home.index');
-// 	});
-// });
-
-
-
-
-// Route::middleware(['web', 'auth'])->group(function () {
-//     // dashborad
-//     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-//     // chatwork
-//     Route::prefix('chatworks')->group(function () {
-//         // Route::get('/', [App\Http\Controllers\ChatworkController::class, 'index'])->name('chatwork.index.get');
-//         // Route::get('/create', [App\Http\Controllers\ChatworkController::class, 'index'])->name('chatwork.schedule.get');
-//         // Route::post('/new', [App\Http\Controllers\ChatworkController::class, 'index'])->name('chatwork.schedule.post');
-//         Route::get('/setting', [App\Http\Controllers\ChatworkController::class, 'setting'])->name('chatwork.setting.get');
-//         Route::post('/setting', [App\Http\Controllers\ChatworkController::class, 'updateSetting'])->name('chatwork.setting.update');
-//     });
-//     Route::resources(['chatworks' => App\Http\Controllers\ChatworkController::class]);
-// });
-
-// Auth::routes();
 

@@ -21,6 +21,7 @@ class CreateShopAccountsTable extends Migration
             $table->integer('type');
             $table->integer('type_region');
             $table->boolean('is_show_sale_price')->default(false);
+            $table->boolean('is_sell')->default(false);
             $table->integer('price');
             $table->integer('sale_price')->nullable();
             $table->json('images')->nullable();
