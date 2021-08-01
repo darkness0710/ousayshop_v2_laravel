@@ -21,7 +21,7 @@
                             <div class="card card-plain">
                                 <a href="{{ route('client.shops.index') }}">
                                     <div class="card-header card-header-image">
-                                        <img src="https://oss.youzu.com/y_web/a98e55c0-cf80-4231-8de3-a6c6e93b035e_2020-12-17.jpg">
+                                        <img src="{{ asset('images/client_home_shop.jpg') }}">
                                     </div>
                                 </a>
                                 <div class="card-body ">
@@ -38,7 +38,7 @@
                             <div class="card card-plain">
                                 <a href="{{ route('client.games.index') }}">
                                     <div class="card-header card-header-image">
-                                        <img src="https://oss.youzu.com/y_web/f8fa1801-c888-4901-a640-196958086536_2020-08-14.jpg">
+                                        <img src="{{ asset('images/client_home_game.jpg') }}">
                                     </div>
                                 </a>
                                 <div class="card-body ">

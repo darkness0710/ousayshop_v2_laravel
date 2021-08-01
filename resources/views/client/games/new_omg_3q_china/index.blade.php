@@ -21,7 +21,7 @@
                             <div class="card card-plain card-blog">
                                 <div class="card-header card-header-image">
                                     <a href="{{ route('client.games.tan_omg_3q_china.show', $post->slug) }}">
-                                        <img class="img img-raised" src="https://scontent-sin6-3.xx.fbcdn.net/v/t1.6435-9/186264964_278470204026463_9023401460158818067_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=qdnpXyiZrYMAX9X2cyv&tn=pxyiGESX3dFsq9Rx&_nc_ht=scontent-sin6-3.xx&oh=ca615d1c307e24c50ad362e71020989f&oe=612AFE41">
+                                        <img class="img img-raised" src="{{ asset('images/client_game_tan_omg_3q_china.jpg') }}">
                                     </a>
                                 <div class="colored-shadow" style=""></div></div>
                                 <div class="card-body">

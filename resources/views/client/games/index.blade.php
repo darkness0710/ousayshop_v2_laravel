@@ -15,7 +15,7 @@
                             <div class="card card-plain">
                                 <a href="{{ route('client.games.tn3q_vng.index') }}">
                                     <div class="card-header card-header-image custom-banner">
-                                        <img src="https://scontent-sin6-3.xx.fbcdn.net/v/t1.6435-9/186264964_278470204026463_9023401460158818067_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=qdnpXyiZrYMAX9X2cyv&tn=pxyiGESX3dFsq9Rx&_nc_ht=scontent-sin6-3.xx&oh=ca615d1c307e24c50ad362e71020989f&oe=612AFE41">
+                                        <img src="{{ asset('images/client_game_tn3q_vng.jpg') }}">
                                     </div>
                                 </a>
                                 <div class="card-body ">
@@ -30,7 +30,7 @@
                             <div class="card card-plain">
                                 <a href="{{ route('client.games.tn3q_china.index') }}">
                                     <div class="card-header card-header-image custom-banner">
-                                        <img src="https://scontent-sin6-1.xx.fbcdn.net/v/t1.6435-9/103695794_117887873285995_2999775042220947818_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=0v2KvT3xAusAX_Ue3Nl&_nc_ht=scontent-sin6-1.xx&oh=cd6f04fd28fa67bb4b0711f70ffaa35d&oe=612AEAE9">
+                                        <img src="{{ asset('images/client_game_tn3q_china.jpg') }}">
                                     </div>
                                 </a>
                                 <div class="card-body ">
@@ -45,7 +45,7 @@
                             <div class="card card-plain">
                                 <a href="{{ route('client.games.tan_omg_3q_vng.index') }}">
                                     <div class="card-header card-header-image custom-banner">
-                                        <img src="https://gamek.mediacdn.vn/133514250583805952/2021/3/26/1621954611452048941684858485915712025524945o-16167568882801599917319.jpg">
+                                        <img src="{{ asset('images/client_game_tan_omg_3q_vng.webp') }}">
                                     </div>
                                 </a>
                                 <div class="card-body ">
@@ -60,7 +60,7 @@
                             <div class="card card-plain">
                                 <a href="{{ route('client.games.tan_omg_3q_china.index') }}">
                                     <div class="card-header card-header-image custom-banner">
-                                        <img src="http://image.9game.cn/s/9game/g/2020/8/19/170242574.jpg">
+                                        <img src="{{ asset('images/client_game_tan_omg_3q_china.jpg') }}">
                                     </div>
                                 </a>
                                 <div class="card-body ">

@@ -22,6 +22,12 @@ class ShopAccount extends Model
     // is_sell
     // type_region // 0: nguy 1: ngo 2: thuc 3: quan
 
+    // "0" => "Thiếu niên 3Q VNG",
+    // "1" => "Thiếu niên 3Q YOYO",
+    // "2" => "Thiếu niên 3Q 9G",
+    // "3" => "Tân OMG 3Q VNG",
+    // "4" => "Tân OMG 3Q China",
+
     protected $guarded = [];
 
     protected $table = 'shop_accounts';
@@ -41,7 +47,18 @@ class ShopAccount extends Model
 
     public function getDefaulThumbnailUrl()
     {
-        return 'https://ousayshop.github.io/img/tn3q_product.551f5acb.png';
+        if ($this->type == '0') {
+            return asset('images/client_game_tn3q_vng.jpg');
+        }
+        if ($this->type == '1' || $this->type == '2') {
+            return asset('images/client_game_tn3q_china.jpg');
+        }
+        if ($this->type == '3') {
+            return asset('images/client_game_tan_omg_3q_vng.webp');
+        }
+        if ($this->type == '4') { 
+            return asset('images/client_game_tan_omg_3q_china.jpg');
+        }
     }
 
     public function getIsShowSaleMessage()
