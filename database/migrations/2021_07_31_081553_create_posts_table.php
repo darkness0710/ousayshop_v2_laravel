@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->integer('type');
             $table->longText ('content');
             $table->integer('user_id')->unsigned()->nullable();
+            $table->boolean('is_publish')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });

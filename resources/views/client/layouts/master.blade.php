@@ -60,7 +60,7 @@
                             <a href="../sections.html#projects" class="dropdown-item">
                                 <i class="material-icons">assignment</i> Projects
                             </a> --}}
-                            <a href="../sections.html#pricing" class="dropdown-item">
+                            <a href="{{ route('client.home.introduction') }}" class="dropdown-item">
                                 <i class="material-icons">monetization_on</i> Trung gian / Quảng cáo
                             </a>
                             {{-- <a href="../sections.html#testimonials" class="dropdown-item">
@@ -82,8 +82,8 @@
                                 <h6 class="dropdown-header">Chức năng người dùng</h6>
                                 <a href="#pablo" class="dropdown-item">Thông tin cá nhân</a>
                                 <a href="#pablo" class="dropdown-item">Các đơn tài khoản đã tạo</a>
-                                <a href="#pablo" class="dropdown-item">Đăng bài viết</a>
-                                <a href="#pablo" class="dropdown-item">Danh sách bài viết</a>
+                                <a href="{{ route('client.post.create') }}" class="dropdown-item">Đăng bài viết</a>
+                                <a href="{{ route('client.post.index') }}" class="dropdown-item">Danh sách bài viết</a>
                                 <a href="#pablo" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="dropdown-item">Đăng xuất</a>
 
                                 <form id="logout-form" action="{{ route('client.social.facebook.logout') }}" method="POST" style="display: none;">

@@ -16,6 +16,7 @@ Route::middleware(['web', 'admin_auth'])->group(function () {
     Route::post('dropzone/delete', 'DropzoneController@delete')->name('admin.dropzone.delete');
 
     // users
+    Route::get('/users/post', 'UserController@post')->name('admin.users.post');
     Route::resource('users', 'UserController', ['as' => 'admin'])->only(['index']);
 
     // posts

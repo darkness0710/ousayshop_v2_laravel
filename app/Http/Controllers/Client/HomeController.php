@@ -15,4 +15,9 @@ class HomeController extends Controller
     {
         return view('client.home.index');
     }
+
+    public function introduction()
+    {
+        return view('client.home.introduction');
+    }
 }

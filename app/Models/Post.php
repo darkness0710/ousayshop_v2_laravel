@@ -15,6 +15,24 @@ class Post extends Model
         'type',
         'content',
         'user_id',
-        'name'
+        'name',
+        'is_publish'
     ];
+
+    // attributes
+    public function getPublishText()
+    {
+        return $this->getIsPublish() ? 'Công khai' : 'Ẩn';
+    }
+
+    public function getIsPublish()
+    {
+        return $this->is_publish == 1;
+    }
+
+    // scope
+     public function scopePublish($query)
+    {
+        return $query->where('is_publish', true);
+    }
 }

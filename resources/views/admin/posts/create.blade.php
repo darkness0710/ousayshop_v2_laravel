@@ -9,7 +9,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-12">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Quản lí bài viết</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.posts.index') }}">Quản lí bài viết</a></li>
                             <li class="breadcrumb-item active">Màn thêm mới</li>
                         </ol>
                     </div>
@@ -64,7 +64,16 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="row">
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input name="is_publish" class="custom-control-input" type="checkbox" id="customCheckbox1" value="true">
+                                        <label for="customCheckbox1" class="custom-control-label">Hiển thị công khai</label>
+                                    </div>
+                                  </div>
+                                </div> 
+                            </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <label>Nội dung(*)</label>
@@ -78,7 +87,6 @@
                                     </script>
                                 </div>
                             </div>
-
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Tạo bài viết</button>
                             </div>

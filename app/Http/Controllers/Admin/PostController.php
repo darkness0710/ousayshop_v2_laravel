@@ -12,7 +12,7 @@ class PostController extends \App\Http\Controllers\Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::whereNull('user_id')->get();
         $type = $this->_getTypeConfig();
         return view('admin.posts.index', compact('posts', 'type'));
     }
@@ -53,7 +53,12 @@ class PostController extends \App\Http\Controllers\Controller
         }
 
         $params = $request->all();
+        if (!isset($params['is_publish'])) {
+            $params['is_publish'] = false;
+        }
+        $params['is_publish'] = $params['is_publish'] == 'true';
         Post::find($id)->update($params);
+        // dd(Post::find($id));
      
         return redirect()->route('admin.posts.index')
             ->with('success', 'Cập nhật bài viết mới thành công!');

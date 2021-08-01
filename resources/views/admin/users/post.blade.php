@@ -7,12 +7,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Quản lí bài viết</h3>
-                            <div class="card-tools">
-                                <div class="input-group input-group-sm" style="width: 150px;">
-                                    <a class="btn btn-block btn-primary" href="{{ route('admin.posts.create') }}">Thêm mới</a>
-                                </div>
-                            </div>
+                            <h3 class="card-title">Quản lí bài viết của User</h3>
                         </div>
                        @if ($message = Session::get('success'))
                             <div class="alert alert-success alert-dismissible">
@@ -44,12 +39,12 @@
                                             <td>{{ $post->slug }}</td>
                                             <td>{{ Arr::get($type, $post->type) }}</td>
                                             <td>{{ $post->getPublishText() }}</td>
-                                            <td>Admin</td>
+                                            <td>{{ $post->user_id }}</td>
                                             <td>
                                                 <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">   
-                                                    <a class="btn btn-primary" href="{{ route('admin.posts.edit', $post->id) }}">Chỉnh sửa</a>   
+                                                    <a class="btn btn-primary" href="{{ route('admin.posts.edit', $post->id) }}">Ẩn bài viết</a>   
                                                     @csrf
-                                                    @method('DELETE')      
+                                                    @method('POST')      
                                                     <button type="submit" class="btn btn-danger">Xóa</button>
                                                 </form>
                                             </td>

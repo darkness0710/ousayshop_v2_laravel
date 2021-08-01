@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['web'])->group(function () {
     // home
     Route::get('/', 'HomeController@index')->name('client.home.index');
+    Route::get('/gioi-thieu', 'HomeController@introduction')->name('client.home.introduction');
 
     // shops
     Route::get('/shops', 'ShopAccountController@index')->name('client.shops.index');
@@ -44,6 +45,11 @@ Route::middleware(['web'])->group(function () {
     // social
     Route::get('/auth/facebook', 'LoginWithFacebookController@redirectFacebook')->name('client.social.facebook.redirect');
     Route::get('/auth/facebook/callback', 'LoginWithFacebookController@facebookCallback')->name('client.social.facebook.callback');
-    Route::post('/auth/facebook/logout', 'LoginWithFacebookController@logout')->name('client.social.facebook.logout');
+
+    Route::middleware(['web', 'client_auth'])->group(function () {
+        Route::get('/posts/create', 'PostController@create')->name('client.post.create');
+        Route::get('/posts', 'PostController@index')->name('client.post.index');
+        Route::post('/auth/facebook/logout', 'LoginWithFacebookController@logout')->name('client.social.facebook.logout');
+    });
 });
 

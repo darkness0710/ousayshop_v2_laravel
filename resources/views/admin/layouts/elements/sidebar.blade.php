@@ -54,7 +54,7 @@
                 <a href="#" class="nav-link {{ setNavBarActiveChild('admin.users') }}">
                     <i class="nav-icon fas fa-th"></i>
                     <p>
-                        Quản lí user
+                        Quản lí User
                         <i class="right fas fa-angle-left"></i>
                     </p>
                 </a>
@@ -63,6 +63,12 @@
                         <a href="{{ route('admin.users.index') }}" class="nav-link {{ setNavBarActiveChild('admin.users.index') }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Màn quản lí</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.users.post') }}" class="nav-link {{ setNavBarActiveChild('admin.users.post') }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Bài viết của user</p>
                         </a>
                     </li>
                 </ul>
