@@ -36,7 +36,6 @@ class PostController extends \App\Http\Controllers\Controller
         $request->validate($data['rules'], $data['messages']);
 
         $params = $request->all();
-        Post::create($params);
 
         if (!isset($params['is_publish'])) {
             $params['is_publish'] = 0;
@@ -44,7 +43,8 @@ class PostController extends \App\Http\Controllers\Controller
         if ($params['is_publish'] == 'true') {
             $params['is_publish'] = 1;
         }
-     
+        Post::create($params);
+
         return redirect()->route('admin.posts.index')
             ->with('success', 'Tạo bài viết mới thành công!');
     }
@@ -67,7 +67,6 @@ class PostController extends \App\Http\Controllers\Controller
             $params['is_publish'] = 1;
         }
         Post::find($id)->update($params);
-        // dd(Post::find($id));
      
         return redirect()->route('admin.posts.index')
             ->with('success', 'Cập nhật bài viết mới thành công!');
