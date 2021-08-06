@@ -43,7 +43,10 @@
                     @if (isUserLogin())
                         <div class="row pull-right"><button class="btn btn-rose btn-round">Đặt mua &nbsp;<i class="material-icons">shopping_cart</i></button></div>
                     @else
-                        <div class="text-right text-danger">Bạn cần đăng nhập để tiến hành đặt mua!</div>
+                        <div class="row pull-right">
+                                <a href="https://m.me/105193195108584" class="btn btn-rose btn-round">Liên hệ mua qua Fanpage &nbsp;<i class="material-icons">shopping_cart</i></a>
+                            </button>
+                        </div>
                         <br>
                     @endif
                 </div>

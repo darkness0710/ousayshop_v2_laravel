@@ -30,6 +30,7 @@
         <div class="col-md-7">
             <div class="card card-profile card-plain">
                 <div class="card-body">
+                    <!-- Messenger Plugin chat Code -->
                     <div id="fb-root"></div>
                     <div class="row">
                         <div id="ytbutton" class="col-md-6">
@@ -52,10 +53,14 @@
     </div>
 </div>
 
+<!-- Your Plugin chat code -->
+<div id="fb-customer-chat" class="fb-customerchat" page_id="105193195108584"></div>
+
 <script src="https://apis.google.com/js/platform.js"></script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0&appId=193002364567174&autoLogAppEvents=1" nonce="miHMUJnS"></script>
 
 <script>
+    // fetch youtobe
     var channelID = "UC5rx1pp9euMdXl-RpGOJVMg";
     var reqURL = "https://www.youtube.com/feeds/videos.xml?channel_id=";
     fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(reqURL)+channelID)
@@ -74,6 +79,32 @@
     };
     window.gapi.ytsubscribe.render(container, options);
 
+    // fetch facebook
+    function fbInit() {
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "105193195108584");
+        chatbox.setAttribute("attribution", "biz_inbox");
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v11.0'
+          });
+        };
+
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+          fjs.parentNode.insertBefore(js, fjs);
+        } (document, 'script', 'facebook-jssdk'));
+    }
+
+    if (typeof FB === "undefined") {
+        fbInit();
+    } else {
+        window.FB.XFBML.parse();
+    }
 </script>
 
 <style type="text/css">
