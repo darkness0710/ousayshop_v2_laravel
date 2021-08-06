@@ -49,7 +49,7 @@ class LoginWithFacebookController extends Controller
     
             return redirect()->route('client.home.index');
         } catch (Exception $e) {
-            dd($e->getMessage());
+            dd($e->getMessage(), '52');
         }
     }
 

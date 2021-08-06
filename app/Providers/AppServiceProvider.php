@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        \URL::forceScheme('http');
+
         \DB::listen(function($sql) {
             \Log::info($sql->sql);
             \Log::info($sql->bindings);
