@@ -7,13 +7,13 @@
         <nav aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="{{ route('client.posts.index') }}">Danh sách bài viết đã đăng</a></li>
-               <li class="breadcrumb-item active" aria-current="page">Đăng bài viết</li>
+               <li class="breadcrumb-item active" aria-current="page">Cập nhật bài viết</li>
             </ol>
         </nav>
 
         <div class="container">
             <div class="section">
-                <h3 class="title text-center">Đăng bài viết mới</h3>
+                <h3 class="title text-center">Cập nhật bài viết</h3>
             </div>
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -25,15 +25,16 @@
                 </div>
             @endif
             <div id="inputs">
-                <form class="form-horizontal" method="post" id="form_shop" action="{{ route('client.posts.store') }}">
+                <form class="form-horizontal" method="post" id="form_shop" action="{{ route('client.posts.update', $post->id) }}">
                     @csrf
+                    @method('PUT')
                     <div class="title fw-bold">
                         <h4>Tiêu đề bài viết (*)</h4>
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group has-default bmd-form-group">
-                                <input type="text" class="form-control" placeholder="Hướng dẫn vượt ải thời không" name="name" value="{{ old('name') }}">
+                                <input type="text" class="form-control" placeholder="Hướng dẫn vượt ải thời không" name="name" value="{{ old('name', $post->name) }}">
                             </div>
                         </div>
                     </div>
@@ -43,7 +44,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group has-default bmd-form-group">
-                                <input type="text" class="form-control" placeholder="huong-dan-vuot-ai-thoi-khong" name="slug" value="{{ old('slug') }}">
+                                <input type="text" class="form-control" placeholder="huong-dan-vuot-ai-thoi-khong" name="slug" value="{{ old('slug', $post->slug) }}">
                             </div>
                         </div>
                     </div>
@@ -54,11 +55,12 @@
                         <div class="col-12">
                             <div class="btn-group bootstrap-select">
                                 <select name="type" class="selectpicker" data-style="select-with-transition" title="Lựa chọn loại game" data-size="7" tabindex="-98">
-                                    <option value="0">Thiếu niên 3Q VNG</option>
-                                    <option value="1">Thiếu niên 3Q YOYO</option>
-                                    <option value="2">Thiếu niên 3Q 9G</option>
-                                    <option value="3">Tân OMG 3Q VNG</option>
-                                    <option value="4">Tân OMG 3Q China</option>
+                                    @foreach ($type as $key => $value)
+                                        @php 
+                                            $checked = old('type', $post->type) == $key ? 'selected' : '';
+                                        @endphp
+                                        <option value="{{ $key }}" {{ $checked }}>{{ $value }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -69,7 +71,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group label-floating bmd-form-group">
-                                <textarea class="form-control" rows="5" name="content">{{ old('content') }}</textarea>
+                                <textarea class="form-control" rows="5" name="content">{{ old('content', $post->content) }}</textarea>
                                 <script type="text/javascript">
                                     CKEDITOR.replace('content', {
                                         filebrowserUploadUrl: "{{ route('admin.ckeditor.upload', ['_token' => csrf_token() ]) }}",
@@ -81,7 +83,7 @@
                         </div>
                     </div>
                     <div class="section text-center">
-                        <button type="submit" class="btn btn-primary">Tạo bài viết</button>
+                        <button type="submit" class="btn btn-primary">Cập nhật bài viết</button>
                     </div>
                 </form>
             </div>

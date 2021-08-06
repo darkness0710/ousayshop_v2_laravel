@@ -23,8 +23,9 @@ Route::middleware(['web', 'admin_auth'])->group(function () {
     Route::resource('posts', 'PostController', ['as' => 'admin']);
 
     // ckeditor
-    Route::post('ckeditor/upload', 'CkeditorController@upload')->name('admin.ckeditor.upload');
 });
+
+Route::post('ckeditor/upload', 'CkeditorController@upload')->name('admin.ckeditor.upload');
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('admin.auth.login.get');
 Route::post('login', 'Auth\LoginController@login')->name('admin.auth.login.post');

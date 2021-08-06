@@ -47,8 +47,10 @@ Route::middleware(['web'])->group(function () {
     Route::get('/auth/facebook/callback', 'LoginWithFacebookController@facebookCallback')->name('client.social.facebook.callback');
 
     Route::middleware(['web', 'client_auth'])->group(function () {
-        Route::get('/posts/create', 'PostController@create')->name('client.post.create');
-        Route::get('/posts', 'PostController@index')->name('client.post.index');
+        // Route::get('/posts/create', 'PostController@create')->name('client.posts.create');
+        // Route::post('/posts', 'PostController@store')->name('client.posts.store');
+        // Route::get('/posts', 'PostController@index')->name('client.posts.index');
+        Route::resource('posts', 'PostController', ['as' => 'client']);
         Route::post('/auth/facebook/logout', 'LoginWithFacebookController@logout')->name('client.social.facebook.logout');
     });
 });

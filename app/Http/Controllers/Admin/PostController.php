@@ -7,12 +7,13 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Carbon\Carbon;
 use Validator;
+use Illuminate\Validation\Rule;
 
 class PostController extends \App\Http\Controllers\Controller
 {
     public function index()
     {
-        $posts = Post::whereNull('user_id')->get();
+        $posts = Post::all();
         $type = $this->_getTypeConfig();
         return view('admin.posts.index', compact('posts', 'type'));
     }
@@ -52,7 +53,10 @@ class PostController extends \App\Http\Controllers\Controller
     public function update(Request $request, $id)
     {
         $data = $this->_getValidateCreateUpdate();
-        $data['rules']['slug'] = 'required|unique:posts' . ',id,' . $id;
+        $data['rules']['slug'] = [
+            'required',
+            Rule::unique('posts')->ignore($id),
+        ];
         $validator = Validator::make($request->all(), $data['rules'], $data['messages']);
 
         if ($validator->fails()) {
@@ -84,10 +88,10 @@ class PostController extends \App\Http\Controllers\Controller
     protected function _getValidateCreateUpdate()
     {
         $rules = [
-            'slug' => 'required|unique:posts',
-            'type' => 'required',
-            'content' => 'required',
-            'name' => 'required',
+            'slug' => ['required', 'unique:posts'],
+            'type' => ['required'],
+            'content' => ['required'],
+            'name' => ['required'],
         ];
 
         $customMessages = [

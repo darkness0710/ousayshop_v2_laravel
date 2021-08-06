@@ -82,8 +82,8 @@
                                 <h6 class="dropdown-header">Chức năng người dùng</h6>
                                 <a href="#pablo" class="dropdown-item">Thông tin cá nhân</a>
                                 <a href="#pablo" class="dropdown-item">Các đơn tài khoản đã tạo</a>
-                                <a href="{{ route('client.post.create') }}" class="dropdown-item">Đăng bài viết</a>
-                                <a href="{{ route('client.post.index') }}" class="dropdown-item">Danh sách bài viết</a>
+                                <a href="{{ route('client.posts.create') }}" class="dropdown-item">Đăng bài viết</a>
+                                <a href="{{ route('client.posts.index') }}" class="dropdown-item">Danh sách bài viết</a>
                                 <a href="#pablo" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="dropdown-item">Đăng xuất</a>
 
                                 <form id="logout-form" action="{{ route('client.social.facebook.logout') }}" method="POST" style="display: none;">

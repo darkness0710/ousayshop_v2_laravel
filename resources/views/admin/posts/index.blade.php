@@ -44,7 +44,7 @@
                                             <td>{{ $post->slug }}</td>
                                             <td>{{ Arr::get($type, $post->type) }}</td>
                                             <td>{{ $post->getPublishText() }}</td>
-                                            <td>Admin</td>
+                                            <td>{{ $post->getAuthor() }}</td>
                                             <td>
                                                 <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">   
                                                     <a class="btn btn-primary" href="{{ route('admin.posts.edit', $post->id) }}">Chỉnh sửa</a>   
