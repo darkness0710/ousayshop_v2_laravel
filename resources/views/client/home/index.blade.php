@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 ml-auto mr-auto">
-                    <h3 class="title text-center">Bảng xếp hạng PlayerDour</h3>
+                    <h3 class="title text-center">Bảng xếp hạng donate PlayerDour</h3>
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
