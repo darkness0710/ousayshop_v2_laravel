@@ -19,6 +19,10 @@
                 <div class="row">
                     {!! $post->content !!}
                 </div>
+                <div class="row">
+                    <p></p>
+                    <div class="fb-like" data-href="http://shopacc3q.com/" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true"></div>
+                </div>
                 {{-- <div class="row">
                     <div class="col-md-8 ml-auto mr-auto text-right">
                         <h2 class="title">Tác giả: ADMIN</h2>
