@@ -49,7 +49,7 @@ class LoginWithFacebookController extends Controller
     
             return redirect()->route('client.home.index');
         } catch (Exception $e) {
-            dd($e->getMessage(), '52');
+            dd('Chức năng đăng nhập facebook đang lỗi, vui lòng liên hệ với Tún!');
         }
     }
 
