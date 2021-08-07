@@ -55,10 +55,8 @@
         </div>               
         <div class="container">
             <div class="row">
-                <div class="col-md-8 ml-auto mr-auto">
-                   <div class="col-md-8 ml-auto mr-auto text-center">
-                    <h3 class="title">Bảng xếp hạng donate wescan</h3>
-                    </div>
+                <div class="col-md-6 ml-auto mr-auto">
+                    <h3 class="title text-center">Bảng xếp hạng donate WeScan</h3>
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
@@ -72,10 +70,33 @@
                             <tbody>
                                 @foreach($wescanData as $idx => $data)
                                     <tr>
-                                        <td class="text-center">{{ ++$idx }}</td>
+                                        <td class="text-center">#{{ ++$idx }}</td>
                                         <td class="text-center">{{ $data['name'] }}</td>
                                         <td class="text-center">{{ $data['times'] }}</td>
                                         <td class="text-center">{{ number_format($data['amount']) . ' VNĐ' }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-6 ml-auto mr-auto">
+                    <h3 class="title text-center">Bảng xếp hạng PlayerDour</h3>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Hạng</th>
+                                    <th class="text-center">Game Thủ</th>
+                                    <th class="text-center">Tổng số tiền Donate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($playDuoData as $idx => $data)
+                                    <tr>
+                                        <td class="text-center">#{{ ++$idx }}</td>
+                                        <td class="text-center">{{ $data['customer']['name'] }}</td>
+                                        <td class="text-center">{{ number_format($data['totalAmount']) . ' VNĐ' }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
