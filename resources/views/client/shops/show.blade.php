@@ -10,17 +10,17 @@
             <div class="row">
                 <div class="col-12">
                     <div class="container">
-                        @foreach ($shop->getObjectImages() as $entity)
                             <div class="splide" id="splide">
                                 <div class="splide__track">
                                     <ul class="splide__list">
-                                        <li class="splide__slide">
-                                            <img src="{{ $entity->src }}">
-                                        </li>
+                                         @foreach ($shop->getObjectImages() as $entity)
+                                            <li class="splide__slide">
+                                                <img src="{{ $entity->src }}">
+                                            </li>
+                                         @endforeach
                                     </ul>
                                 </div>
                             </div>
-                        @endforeach
                     </div>
                 </div>
             </div>
