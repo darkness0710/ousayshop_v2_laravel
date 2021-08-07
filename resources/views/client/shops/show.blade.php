@@ -40,15 +40,15 @@
                             </div>
                         </div>
                     </div>
-                    @if (isUserLogin())
+                    {{-- @if (isUserLogin())
                         <div class="row pull-right"><button class="btn btn-rose btn-round">Đặt mua &nbsp;<i class="material-icons">shopping_cart</i></button></div>
-                    @else
+                    @else --}}
                         <div class="row pull-right">
                                 <a href="https://m.me/105193195108584" class="btn btn-rose btn-round" target="_blank">Liên hệ mua qua Fanpage &nbsp;<i class="material-icons">shopping_cart</i></a>
                             </button>
                         </div>
                         <br>
-                    @endif
+                    {{-- @endif --}}
                 </div>
             </div>
         </div>
